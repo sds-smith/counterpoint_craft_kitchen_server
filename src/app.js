@@ -1,10 +1,12 @@
-// const path = require('path');
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { json } from 'express';
 // const helmet = require('helmet');
 import cors from 'cors'
-
-// const authRouter = require('./routes/auth/auth.router');
 import api from './routes/api/api.js';
+
+const origin = process.env.ALLOW_ORIGIN;
 
 const app = express();
 
@@ -17,15 +19,10 @@ const app = express();
 // }));
 
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin
 }));
 app.use(json());
-// app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// app.use('/auth', authRouter);
 app.use('/v1', api);
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-// });
 
-export default app
+export default app;

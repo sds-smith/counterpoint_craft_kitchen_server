@@ -20,10 +20,10 @@ export const buildMenuItemsByCategory = (items, categories) =>
           ...acc[curr.category.toLowerCase()], 
           items: [...acc[curr.category.toLowerCase()].items, curr]
         }
-      }), categories)
+    }), categories)
 
 export const buildMenuItemsById = (items) =>
     items.reduce((acc, curr) => ({
         ...acc,
         [curr.id]: curr
-      }), {})
+    }), {})

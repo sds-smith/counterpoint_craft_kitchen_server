@@ -7,7 +7,7 @@ import {
     buildMenuItemsById 
 } from "../helpers/menuHelpers.js";
 
-const MENU_API = process.env.MENU_DATA_API_BASE_URL
+const MENU_API = process.env.MENU_DATA_API_BASE_URL;
 
 export async function getMenuData() {
     const categoriesResponse = await fetch(`${MENU_API}/categories`);
