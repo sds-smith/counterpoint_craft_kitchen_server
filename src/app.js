@@ -5,6 +5,7 @@ import express, { json } from 'express';
 // const helmet = require('helmet');
 import cors from 'cors'
 import api from './routes/api/api.js';
+import authRouter from './routes/auth/index.js'
 
 const origin = process.env.ALLOW_ORIGIN;
 
@@ -24,5 +25,6 @@ app.use(cors({
 app.use(json());
 
 app.use('/v1', api);
+app.use('/auth', authRouter);
 
 export default app;
